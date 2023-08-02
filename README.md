@@ -25,3 +25,5 @@ use the following
 ``` echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null ```
  
 It will resolve the above error and we can able to update.
+
+To check debian current version use ```lsb_release -a```
