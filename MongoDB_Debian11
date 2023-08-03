@@ -1,0 +1,10 @@
+Working on MongoDB with debian 11 WSL
+  when ```mongod``` gives the error ```Fatal assertion / ***aborting after fassert() failure ```
+  and when ``` mongo ``` gives the error ``` connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Error: couldn't connect to server 127.0.0.1:27017, connection attempt failed: SocketException: Error connecting to 127.0.0.1:27017 :: caused by :: Connection refused : ```
+then use the following command ``` sudo rm /var/lib/mongodb/mongod.lock ``` and ``` mongod --repair ``` which gives the error ``` Shutting down ```
+which is because the path for the db is somehow deleted now create a directory for ``` db ``` by using following commands
+``` sudo mkdir -p /data/db ```
+``` sudo chmod 777 /data/db ``` which gives the same error when we try the ``` mongod ``` that is ``` ***aborting after fassert() failure ```
+then remove the ``` /tmp/mongodb-27017.sock ``` by using this command ``` sudo rm -f /tmp/mongodb-27017.sock ```
+try ``` mongod ``` then it will start.
